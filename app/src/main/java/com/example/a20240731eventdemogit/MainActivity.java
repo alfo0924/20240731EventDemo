@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity implements View
 
-        .OnClickListener {
+        .OnClickListener , View.OnLongClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,13 @@ public class MainActivity extends AppCompatActivity implements View
     public void onClick(View view) {
     TextView tv_text=(TextView) findViewById(R.id.tv_text);
     TextView tv_size=(TextView) findViewById(R.id.tv_size);
-    float size=tv_text.getTextSize()+5;
+    float size=tv_text.getTextSize()+5;   //按下按鈕增加tv_text 的大小
     tv_text.setTextSize(size);
     tv_size.setText(String.valueOf(size));
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        return false;
     }
 }
