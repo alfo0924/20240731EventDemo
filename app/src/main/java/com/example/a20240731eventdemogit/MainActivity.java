@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
+//impement OnClickListener,OnLongClickListener
 public class MainActivity extends AppCompatActivity implements View
 
         .OnClickListener , View.OnLongClickListener {
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View
         });
         Button b=(Button)findViewById(R.id.button);
         b.setOnClickListener(this);
+        b.setOnLongClickListener(this);
     }
 
     @Override
@@ -40,6 +43,11 @@ public class MainActivity extends AppCompatActivity implements View
 
     @Override
     public boolean onLongClick(View view) {
-        return false;
+        TextView tv_text=(TextView) findViewById(R.id.tv_text);
+        TextView tv_size=(TextView) findViewById(R.id.tv_size);
+        tv_text.setTextSize(30);
+        tv_size.setText(String.valueOf("30"));
+
+        return true;
     }
 }
