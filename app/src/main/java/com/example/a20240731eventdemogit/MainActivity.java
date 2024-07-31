@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements View
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-
+        TextView tv_action=(TextView)findViewById(R.id.action);
+        TextView tv_position=(TextView)findViewById(R.id.position);
+        int act=motionEvent.getAction();
         return false;
     }
 }
