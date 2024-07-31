@@ -44,6 +44,15 @@ public class MainActivity extends AppCompatActivity implements View
     float size=tv_text.getTextSize()+5;   //按下按鈕增加tv_text 的大小
     tv_text.setTextSize(size);
     tv_size.setText(String.valueOf(size));
+
+    float currentSizeSp=tv_text.getTextSize()/getResources().getDisplayMetrics().scaledDensity;
+    if(view.getId()==R.id.button){
+        tv_text.setTextSize(currentSizeSp+5);
+        tv_size.setText(String.valueOf(currentSizeSp+5));
+    }else {
+        tv_text.setTextSize(currentSizeSp-5);
+        tv_size.setText(String.valueOf(currentSizeSp-5));
+    }
     }
 
     @Override
