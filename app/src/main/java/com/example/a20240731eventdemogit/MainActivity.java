@@ -1,5 +1,6 @@
 package com.example.a20240731eventdemogit;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View
         Button b=(Button)findViewById(R.id.button);
         b.setOnClickListener(this);
         b.setOnLongClickListener(this);
+        ConstraintLayOut main=(ConstraintLayOut)findViewById(R.id.main);
+        main.setOnTouchListener(this);
     }
 
     @Override
@@ -57,6 +60,20 @@ public class MainActivity extends AppCompatActivity implements View
         TextView tv_action=(TextView)findViewById(R.id.action);
         TextView tv_position=(TextView)findViewById(R.id.position);
         int act=motionEvent.getAction();
-        return false;
+        switch(act) {
+            case MotionEvent.ACTION_DOWN:
+                tv_action.setText("ACTION_DOWN");
+                tv_action.setTextColor(Color.parseColor("#952354"));
+                break;
+            case MotionEvent.ACTION_MOVE:
+                tv_action.setText("ACTION_MOVE");
+                tv_action.setTextColor(Color.parseColor("#952844"));
+                break;
+            case MotionEvent.ACTION_UP:
+                tv_action.setText("ACTION_UP");
+                tv_action.setTextColor(Color.parseColor("#956654"));
+                break;
+        }
+        return true;
     }
 }
