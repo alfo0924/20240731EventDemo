@@ -1,6 +1,7 @@
 package com.example.a20240731eventdemogit;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 //impement OnClickListener,OnLongClickListener
 public class MainActivity extends AppCompatActivity implements View
 
-        .OnClickListener , View.OnLongClickListener {
+        .OnClickListener , View.OnLongClickListener,View.OnTouchListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,5 +50,11 @@ public class MainActivity extends AppCompatActivity implements View
         tv_size.setText(String.valueOf("30"));
 
         return true;
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+
+        return false;
     }
 }
