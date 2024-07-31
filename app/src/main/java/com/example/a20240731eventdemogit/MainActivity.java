@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View
         Button b=(Button)findViewById(R.id.button);
         b.setOnClickListener(this);
         b.setOnLongClickListener(this);
-        ConstraintLayOut main=(ConstraintLayOut)findViewById(R.id.main);
+        ConstraintLayout main=(ConstraintLayout) findViewById(R.id.main);
         main.setOnTouchListener(this);
     }
 
@@ -63,7 +64,8 @@ public class MainActivity extends AppCompatActivity implements View
         switch(act) {
             case MotionEvent.ACTION_DOWN:
                 tv_action.setText("ACTION_DOWN");
-                tv_action.setTextColor(Color.parseColor("#952354"));
+                tv_action.setTextColor(Color.parseColor("#95224"));
+                tv_position.setText("x"+motionEvent.getX()+"\n"+"y"+motionEvent.getY());
                 break;
             case MotionEvent.ACTION_MOVE:
                 tv_action.setText("ACTION_MOVE");
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View
                 tv_action.setTextColor(Color.parseColor("#956654"));
                 break;
         }
+        tv_position.setText("x"+motionEvent.getX()+"\n"+"y"+motionEvent.getY());
         return true;
     }
 }
